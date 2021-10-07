@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Google Карты API / JavaScript</title>
+    <style>
+        #map {
+            height: 700px;
+            width: 100%;
+        }
+    </style>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <header class="header">
+        <div class="menu">
+            <div class="header_wrapper">
+            <nav class="header_nav">
+            <ul class="header_list">
+                <li class="header_item">
+                <a href="index.html" class="header_link">Резюме</a>
+                </li>
+                <li class="header_item">
+                <a href="map.html" class="header_link">Карта</a>
+                </li>
+                <li class="header_item">
+                <a href="timer.html" class="header_link">Таймер</a>
+                </li>
+                </ul>
+            </nav>
+            </div>
+             </div>
+        </header>
+    
+    <div class="div3"> 
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            var pos = {lat: 56.748134, lng: 37.198716};
+            var opt = {
+                center: pos,
+                zoom: 15,
+                styles: [
+      { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+      { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+      { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+      {
+        featureType: "administrative.locality",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "poi",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "geometry",
+        stylers: [{ color: "#263c3f" }],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#6b9a76" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [{ color: "#38414e" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#212a37" }],
+      },
+      {
+        featureType: "road",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#9ca5b3" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry",
+        stylers: [{ color: "#746855" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#1f2835" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#f3d19c" }],
+      },
+      {
+        featureType: "transit",
+        elementType: "geometry",
+        stylers: [{ color: "#2f3948" }],
+      },
+      {
+        featureType: "transit.station",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [{ color: "#17263c" }],
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#515c6d" }],
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.stroke",
+        stylers: [{ color: "#17263c" }],
+      },
+    ],
+            }     
+            
+            var myMap = new google.maps.Map(document.getElementById("map"), opt);
+            
+            var marker = new google.maps.Marker({
+               position: pos,
+               map: myMap,
+            });
+            
+            var info = new google.maps.InfoWindow({
+                content: '<h1>Это мой дом</h1><p>Здесь я живу</p>'
+            });
+            
+            marker.addListener("click", function() {
+                info.open(myMap, marker);
+            });
+        }
+    </script>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASn2Vy3nmUtwZ3JXNG2Sg0zYOrU4nS75o&callback=initMap">
+</script>
+</div>
+</body>
+</html>
+    

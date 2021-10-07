@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Таймер</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+    <script type="text/javascript">
+        let date1;
+    </script>
+<body onload="timer()" class="second">
+    <script type="text/javascript">
+       /* function getDate()
+        {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            hours = hours - date1.getHours();
+            minutes = minutes - date1.getMinutes();
+            seconds = seconds - date1.getSeconds();
+            if(seconds < 10)
+                {
+                    seconds = '0' + seconds;
+                }
+            if(minutes < 10)
+                {
+                    minutes = '0' + minutes;
+                }
+            if(hours < 10)
+                {
+                    hours = '0' + hours;
+                }
+            document.getElementById('timedisplay').innerHTML = hours + ':' + minutes + ':' + seconds;
+        }
+        setInterval(getDate, 0);
+        */
+    </script>
+    <script type="text/javascript">
+        // var id = setInterval("myFunct_1()", 1000);
+        var counter = 0;
+        /*
+        function myFunct_1() {
+        counter++;
+        alert("Секунд прошло -" + counter);
+        if(counter == 3) clearInterval(id);
+        }
+        */
+        function timer (){
+        counter++;
+        document.getElementById("count").innerHTML = counter;
+        setTimeout("timer()", 1000);
+        }
+    </script>
+    <header class="header">
+        <div class="menu">
+            <div class="header_wrapper">
+            <nav class="header_nav">
+            <ul class="header_list">
+                <li class="header_item">
+                <a href="index.html" class="header_link">Резюме</a>
+                </li>
+                <li class="header_item">
+                <a href="map.html" class="header_link">Карта</a>
+                </li>
+                <li class="header_item">
+                <a href="timer.html" class="header_link">Таймер</a>
+                </li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+    </header>
+    <div class="div4">  
+        <div class="box">
+            Вы на странице:  
+            <span id="count">
+            
+            </span>
+             секунд
+                
+        </div>
+    </div>
+    </body>
+</html>
+    
